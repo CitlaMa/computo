@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mensajes</title>
+    <style>
+        .nombre {
+            font-weight: bold;
+        }
+        .carrera {
+            color: blue;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vista de los mensajes</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Mensaje</th>
+                <th>Carrera</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mensaje in mensajes %}
+                <tr>
+                    <td class="nombre">{{ mensaje.persona.nombre }} {{ mensaje.persona.ap_pat }} {{ mensaje.persona.ap_mat }}</td>
+                    <td>{{ mensaje.txt_mensaje }}</td>
+                    <td class="carrera">{{ mensaje.persona.carrera.nombre }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
